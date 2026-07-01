@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMail, FiLinkedin, FiGithub, FiMapPin, FiSend, FiLoader, FiCheckCircle, FiTwitter } from 'react-icons/fi';
+import { FiMail, FiGithub, FiMapPin, FiSend, FiLoader, FiCheckCircle, FiTwitter } from 'react-icons/fi';
 import { Container } from './Container';
 import { SectionTitle } from './SectionTitle';
 import { Button } from './Button';
