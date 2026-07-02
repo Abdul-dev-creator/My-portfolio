@@ -2,6 +2,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Projects } from './components/Projects';
+import { CodeSnippets } from './components/CodeSnippets';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -21,6 +22,9 @@ function App() {
 
         {/* Projects Section */}
         <Projects />
+
+        {/* Code Snippets Section */}
+        <CodeSnippets />
 
         {/* Contact Section */}
         <Contact />
