@@ -20,6 +20,18 @@
   --shadow-glow-secondary: 0 0 40px -5px rgba(139, 92, 246, 0.12);
 }
 
+/* Light Mode Theme */
+:root.light-mode {
+  --color-background: #FFFFFF;
+  --color-surface: #F5F5F5;
+  --color-card: #F0F0F0;
+  --color-border: #E5E5E5;
+  --color-text: #1A1A1A;
+  --color-muted: #666666;
+  --color-primary: #0891B2;
+  --color-secondary: #0891B2;
+}
+
 @layer base {
   body {
     @apply bg-background text-text font-body antialiased selection:bg-primary/30 selection:text-white overflow-x-hidden scroll-smooth;
@@ -45,6 +57,16 @@
   background: #06B6D4;
 }
 
+:root.light-mode ::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+:root.light-mode ::-webkit-scrollbar-thumb {
+  background: #E5E5E5;
+}
+:root.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: #0891B2;
+}
+
 /* Custom premium background grid */
 .bg-grid-pattern {
   background-size: 40px 40px;
@@ -53,12 +75,23 @@
     linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
 }
 
+:root.light-mode .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
 /* Glassmorphism utility */
 .glassmorphism {
   background: rgba(9, 9, 11, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(39, 39, 42, 0.4);
+}
+
+:root.light-mode .glassmorphism {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(229, 229, 229, 0.5);
 }
 
 /* Subtle glow effects */

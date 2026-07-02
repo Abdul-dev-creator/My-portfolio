@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { Container } from './Container';
+import { useTheme } from '../ThemeContext';
 
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +60,14 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="hidden md:flex items-center justify-center p-2.5 rounded-lg bg-surface border border-border/60 hover:border-cyan-400/50 text-muted hover:text-cyan-400 transition-all duration-300 ml-4"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
+          </button>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -92,6 +101,25 @@ export const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  toggleTheme();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-lg bg-surface border border-border/60 hover:border-cyan-400/50 text-muted hover:text-cyan-400 transition-all duration-300 mt-4"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <FiSun size={18} />
+                    <span>Light Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <FiMoon size={18} />
+                    <span>Dark Mode</span>
+                  </>
+                )}
+              </button>
             </Container>
           </motion.div>
         )}

@@ -50,13 +50,13 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative w-full max-w-[360px] aspect-[4/5] rounded-[24px] overflow-hidden group"
+              className="relative w-full max-w-90 aspect-4/5 rounded-[24px] overflow-hidden group"
             >
               {/* Animated Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-400 via-cyan-400 to-pink-500 opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-liner-to-tr from-cyan-400 via-cyan-400 to-pink-500 opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
               
               {/* Profile Image */}
-              <div className="absolute inset-[1px] bg-card rounded-[23px] overflow-hidden">
+              <div className="absolute inset-1px bg-card rounded-[23px] overflow-hidden">
                 <img
                   src="/IMG-20250815-WA0008.jpg"
                   alt="Profile"
