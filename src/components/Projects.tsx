@@ -18,14 +18,14 @@ export const Projects: React.FC = () => {
       ],
       githubUrl: 'https://github.com/Abdul-dev-creator/sleep-tracker',
       liveUrl: 'https://sleep-tracker-red-seven.vercel.app/',
-      gridSpan: 'lg:col-span-8',
+      gridSpan: 'lg:col-span-6',
       previewComponent: (
         <div className="absolute inset-0 p-6 flex flex-col justify-between">
           <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
           {/* Top Bar */}
           <div className="flex items-center justify-between z-10">
-            <span className="text-xs font-bold text-cyan-400 font-heading">Sleep Tracker</span>
-            <span className="text-[10px] bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 px-2 py-0.5 rounded-full font-mono">Active</span>
+            <span className="text-xs font-bold text-projectAccent font-heading">Sleep Tracker</span>
+            <span className="text-[10px] bg-projectAccent/10 text-projectAccent border border-projectAccent/20 px-2 py-0.5 rounded-full font-mono">Active</span>
           </div>
           
           {/* Screenshot Image */}
@@ -52,13 +52,13 @@ export const Projects: React.FC = () => {
       ],
       githubUrl: 'https://github.com/David-patrick-chuks/blastr',
       liveUrl: 'https://blastr.vercel.app/',
-      gridSpan: 'lg:col-span-4',
+      gridSpan: 'lg:col-span-6',
       previewComponent: (
-        <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-br from-background via-background to-cyan-400/5">
+        <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-br from-background via-background to-projectAccent/5">
           <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
           <div className="flex items-center justify-between z-10">
-            <span className="text-xs font-bold text-cyan-400 font-heading">BLASTR</span>
-            <span className="text-[10px] bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 px-2 py-0.5 rounded-full font-mono">Live</span>
+            <span className="text-xs font-bold text-projectAccent font-heading">BLASTR</span>
+            <span className="text-[10px] bg-projectAccent/10 text-projectAccent border border-projectAccent/20 px-2 py-0.5 rounded-full font-mono">Live</span>
           </div>
           
           {/* Screenshot Image */}
@@ -77,8 +77,8 @@ export const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-24 bg-background border-t border-border/35 relative overflow-hidden">
       {/* Glow Effects in Background */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-cyan-400/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/3 -translate-x-1/2 w-96 h-96 rounded-full bg-cyan-400/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-projectAccent/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/3 -translate-x-1/2 w-96 h-96 rounded-full bg-projectAccent/5 blur-[120px] pointer-events-none" />
 
       <Container>
         <SectionTitle

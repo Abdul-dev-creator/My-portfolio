@@ -21,13 +21,13 @@ export const About: React.FC = () => {
       id: 'projects',
       label: 'Projects Completed',
       value: '5+',
-      icon: <FiLayers className="text-cyan-400 w-5 h-5" />,
+      icon: <FiLayers className="text-accent w-5 h-5" />,
     },
     {
       id: 'tech',
       label: 'Technologies',
       value: '3+',
-      icon: <FiCode className="text-cyan-400 w-5 h-5" />,
+      icon: <FiCode className="text-accent w-5 h-5" />,
     },
     {
       id: 'learning',
@@ -53,7 +53,7 @@ export const About: React.FC = () => {
               className="relative w-full max-w-90 aspect-4/5 rounded-[24px] overflow-hidden group"
             >
               {/* Animated Gradient Border */}
-              <div className="absolute inset-0 bg-liner-to-tr from-cyan-400 via-cyan-400 to-pink-500 opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-liner-to-tr from-accent via-accent to-pink-500 opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
               
               {/* Profile Image */}
               <div className="absolute inset-1px bg-card rounded-[23px] overflow-hidden">
@@ -87,7 +87,7 @@ export const About: React.FC = () => {
             </p>
 
             <p className="text-muted leading-relaxed mb-8 font-body text-base sm:text-lg">
-              With deep expertise in <span className="text-cyan-400 font-semibold">React</span>, <span className="text-cyan-400 font-semibold">TypeScript</span>, and <span className="text-cyan-400 font-semibold">Tailwind CSS</span>, I leverage modern frontend tooling to turn complex requirements into clean, maintainable codebases. I prioritize web standards, semantic HTML, and proper keyboard navigation in every project.
+              With deep expertise in <span className="text-accent font-semibold">React</span>, <span className="text-accent font-semibold">TypeScript</span>, and <span className="text-accent font-semibold">Tailwind CSS</span>, I leverage modern frontend tooling to turn complex requirements into clean, maintainable codebases. I prioritize web standards, semantic HTML, and proper keyboard navigation in every project.
             </p>
 
             {/* Bento Grid Stats */}
@@ -125,7 +125,7 @@ export const About: React.FC = () => {
                     ) : (
                       <button
                         onClick={() => setIsEditingYears(true)}
-                        className="p-1 opacity-0 group-hover:opacity-100 hover:text-cyan-400 text-muted transition-opacity duration-300 cursor-pointer"
+                        className="p-1 opacity-0 group-hover:opacity-100 hover:text-accent text-muted transition-opacity duration-300 cursor-pointer"
                         aria-label="Edit years"
                       >
                         <FiEdit2 size={12} />
@@ -140,7 +140,7 @@ export const About: React.FC = () => {
                     value={tempYears}
                     onChange={(e) => setTempYears(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSaveYears()}
-                    className="bg-background border border-border rounded px-2 py-1 text-text text-xl font-bold font-heading w-full focus:outline-none focus:ring-1 focus:ring-cyan-400"
+                    className="bg-background border border-border rounded px-2 py-1 text-text text-xl font-bold font-heading w-full focus:outline-none focus:ring-1 focus:ring-accent"
                     autoFocus
                   />
                 ) : (

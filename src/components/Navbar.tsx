@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2 group">
-            <span className="text-xl sm:text-2xl font-bold font-heading bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 bg-clip-text text-transparent group-hover:opacity-90 transition-opacity duration-300 animate-pulse hover:animate-none">
+            <span className="text-xl sm:text-2xl font-bold font-heading bg-gradient-to-r from-accent via-accent to-accent bg-clip-text text-transparent group-hover:opacity-90 transition-opacity duration-300 animate-pulse hover:animate-none">
               Abdul.dev
             </span>
           </a>
@@ -52,10 +52,10 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted hover:text-cyan-400 transition-all duration-300 relative group py-2 px-3 rounded-lg hover:bg-cyan-400/10"
+                className="text-sm font-medium text-muted hover:text-accent transition-all duration-300 relative group py-2 px-3 rounded-lg hover:bg-accent/10"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-300 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-accent transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="hidden md:flex items-center justify-center p-2.5 rounded-lg bg-surface border border-border/60 hover:border-cyan-400/50 text-muted hover:text-cyan-400 transition-all duration-300 ml-4"
+            className="hidden md:flex items-center justify-center p-2.5 rounded-lg bg-surface border border-border/60 hover:border-accent/50 text-muted hover:text-accent transition-all duration-300 ml-4"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-muted hover:text-text focus:outline-none focus:ring-2 focus:ring-cyan-400/50 rounded-lg transition-colors"
+            className="md:hidden p-2 text-muted hover:text-text focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-lg transition-colors"
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -96,7 +96,7 @@ export const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-muted hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-cyan-400/10 transition-all duration-300 border-b border-border/20"
+                  className="text-base font-medium text-muted hover:text-accent py-3 px-4 rounded-lg hover:bg-accent/10 transition-all duration-300 border-b border-border/20"
                 >
                   {link.name}
                 </a>
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
                   toggleTheme();
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-lg bg-surface border border-border/60 hover:border-cyan-400/50 text-muted hover:text-cyan-400 transition-all duration-300 mt-4"
+                className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-lg bg-surface border border-border/60 hover:border-accent/50 text-muted hover:text-accent transition-all duration-300 mt-4"
               >
                 {theme === 'dark' ? (
                   <>

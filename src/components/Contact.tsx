@@ -23,6 +23,17 @@ export const Contact: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const CONTACT_EMAIL = 'abdulqudusopeyemi2020@gmail.com';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const isFormspreeConfigured = !FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID');
+
+  const createMailtoLink = () => {
+    const subject = `Portfolio message from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   const validateField = (name: keyof FormData, value: string) => {
     let error = '';
@@ -41,17 +52,20 @@ export const Contact: React.FC = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (touched[name as keyof FormData]) {
-      validateField(name as keyof FormData, value);
+    const fieldName = e.target.name as keyof FormData;
+    const fieldValue = e.target.value;
+    setFormData((prev) => ({ ...prev, [fieldName]: fieldValue }));
+
+    if (touched[fieldName]) {
+      validateField(fieldName, fieldValue);
     }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-    validateField(name as keyof FormData, value);
+    const fieldName = e.target.name as keyof FormData;
+    const fieldValue = e.target.value;
+    setTouched((prev) => ({ ...prev, [fieldName]: true }));
+    validateField(fieldName, fieldValue);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,47 +77,69 @@ export const Contact: React.FC = () => {
     const messageError = validateField('message', formData.message);
 
     setTouched({ name: true, email: true, message: true });
+    setSubmitError('');
 
     if (nameError || emailError || messageError) {
       return;
     }
 
+    if (!isFormspreeConfigured) {
+      window.location.href = createMailtoLink();
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate API request
-    await new Promise((resolve) => setTimeout(resolve, 1800));
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: '', email: '', message: '' });
-    setTouched({});
-    
-    // Reset success banner after 5 seconds
-    setTimeout(() => setIsSuccess(false), 5000);
+      if (!response.ok) {
+        throw new Error('Failed to submit the form');
+      }
+
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTouched({});
+      setSubmitError('');
+
+      // Reset success banner after 5 seconds
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      setSubmitError('Unable to send message through the form. Opening email client as a fallback.');
+      window.location.href = createMailtoLink();
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
-      icon: <FiMail className="w-5 h-5 text-cyan-400" />,
+      icon: <FiMail className="w-5 h-5 text-accent" />,
       label: 'Email',
       value: 'abdulqudusopeyemi2020@gmail.com',
-      href: 'Abdul:abdulqudusopeyemi2020@gmail.com',
+      href: 'mailto:abdulqudusopeyemi2020@gmail.com',
     },
-   
     {
-      icon: <FiGithub className="w-5 h-5 text-cyan-400" />,
+      icon: <FiGithub className="w-5 h-5 text-accent" />,
       label: 'GitHub',
       value: 'github.com/Abdul-dev-creator',
       href: 'https://github.com/Abdul-dev-creator',
     },
     {
-      icon: <FiMapPin className="w-5 h-5 text-cyan-400" />,
+      icon: <FiMapPin className="w-5 h-5 text-accent" />,
       label: 'Location',
       value: 'Kwara State, Nigeria',
       href: '#',
     },
     {
-      icon: <FiTwitter className="w-5 h-5 text-cyan-400" />,
+      icon: <FiTwitter className="w-5 h-5 text-accent" />,
       label: 'Twitter',
       value: 'The Dev Guy | Frontend dev',
       href: 'https://x.com/home',
@@ -142,14 +178,14 @@ export const Contact: React.FC = () => {
                   href={info.href}
                   target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 rounded-[16px] bg-card/40 border border-border/40 hover:border-cyan-400/40 hover:bg-card/70 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 rounded-[16px] bg-card/40 border border-border/40 hover:border-accent/40 hover:bg-card/70 transition-all duration-300 group"
                 >
-                  <div className="p-3 rounded-full bg-surface border border-border/85 group-hover:border-cyan-400/30 transition-colors">
+                  <div className="p-3 rounded-full bg-surface border border-border/85 group-hover:border-accent/30 transition-colors">
                     {info.icon}
                   </div>
                   <div>
                     <p className="text-xs text-muted font-medium">{info.label}</p>
-                    <p className="text-sm font-semibold text-text group-hover:text-cyan-400 transition-colors">
+                    <p className="text-sm font-semibold text-text group-hover:text-accent transition-colors">
                       {info.value}
                     </p>
                   </div>
@@ -200,13 +236,14 @@ export const Contact: React.FC = () => {
                         type="text"
                         id="name"
                         name="name"
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full bg-background border rounded-[12px] px-4 py-3 text-sm text-text placeholder-muted/40 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 transition-all ${
+                        className={`w-full bg-background border rounded-[12px] px-4 py-3 text-sm text-text placeholder-muted/40 focus:outline-none focus:ring-2 focus:ring-accent/30 hover:border-accent/40 transition-all ${
                           touched.name && errors.name
                             ? 'border-red-500/80 focus:ring-red-500/20'
-                            : 'border-border/85 focus:border-cyan-400/80'
+                            : 'border-border/85 focus:border-accent/80'
                         }`}
                         placeholder="Abdulqudus"
                       />
@@ -227,10 +264,10 @@ export const Contact: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full bg-background border rounded-[12px] px-4 py-3 text-sm text-text placeholder-muted/40 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 transition-all ${
+                        className={`w-full bg-background border rounded-[12px] px-4 py-3 text-sm text-text placeholder-muted/40 focus:outline-none focus:ring-2 focus:ring-accent/30 hover:border-accent/40 transition-all ${
                           touched.email && errors.email
                             ? 'border-red-500/80 focus:ring-red-500/20'
-                            : 'border-border/85 focus:border-cyan-400/80'
+                            : 'border-border/85 focus:border-accent/80'
                         }`}
                         placeholder="abdulqudusopeyemi2020@gmail.com"
                       />
@@ -251,10 +288,10 @@ export const Contact: React.FC = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         rows={5}
-                        className={`w-full bg-background border rounded-[12px] px-4 py-3 text-sm text-text placeholder-muted/40 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 transition-all resize-none ${
+                        className={`w-full bg-background border rounded-[12px] px-4 py-3 text-sm text-text placeholder-muted/40 focus:outline-none focus:ring-2 focus:ring-accent/30 hover:border-accent/40 transition-all resize-none ${
                           touched.message && errors.message
                             ? 'border-red-500/80 focus:ring-red-500/20'
-                            : 'border-border/85 focus:border-cyan-400/80'
+                            : 'border-border/85 focus:border-accent/80'
                         }`}
                         placeholder="Tell me about your project..."
                       />
@@ -264,6 +301,9 @@ export const Contact: React.FC = () => {
                     </div>
 
                     {/* Submit Button */}
+                    {submitError && (
+                      <p className="text-xs text-red-400 mb-2">{submitError}</p>
+                    )}
                     <Button
                       type="submit"
                       variant="primary"

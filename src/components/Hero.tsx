@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-cyan-400/10 blur-[120px] glow-primary"
+          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent/10 blur-[120px] glow-primary"
         />
         <motion.div
           animate={{
@@ -76,7 +76,7 @@ export const Hero: React.FC = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] rounded-full bg-cyan-400/10 blur-[120px] glow-secondary"
+          className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] rounded-full bg-accent/10 blur-[120px] glow-secondary"
         />
       </div>
 
@@ -108,7 +108,7 @@ export const Hero: React.FC = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight text-text leading-[1.1] mb-6 font-heading"
             >
-              Hi, I'm <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">Abdul</span>.
+              Hi, I'm <span className="hero-name">Abdul</span>.
             </motion.h1>
 
             {/* Sub-headline */}
@@ -177,9 +177,9 @@ export const Hero: React.FC = () => {
                 </div>
                 <div className="pl-4">
                   <span className="text-pink-400">tech</span>: {'['}
-                  <span className="text-cyan-400">'React'</span>,{' '}
-                  <span className="text-cyan-400">'TypeScript'</span>,{' '}
-                  <span className="text-cyan-400">'Tailwind'</span>
+                  <span className="text-accent">'React'</span>,{' '}
+                  <span className="text-accent">'TypeScript'</span>,{' '}
+                  <span className="text-accent">'Tailwind'</span>
                   {']'},
                 </div>
                 <div className="pl-4">
@@ -190,19 +190,19 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Accent Gradient Border Effect */}
-              <div className="absolute inset-0 border border-transparent group-hover:border-cyan-400/20 rounded-[32px] transition-colors duration-500" />
+              <div className="absolute inset-0 border border-transparent group-hover:border-accent/20 rounded-[32px] transition-colors duration-500" />
             </motion.div>
 
             {/* Additional Floating Gradient Elements */}
             <motion.div
               variants={floatingSecondaryVariants}
               animate="animate"
-              className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-tr from-cyan-400 to-pink-500 opacity-20 blur-xl pointer-events-none"
+              className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-tr from-accent to-pink-500 opacity-20 blur-xl pointer-events-none"
             />
             <motion.div
               variants={floatingVariants}
               animate="animate"
-              className="absolute -bottom-10 -left-6 w-32 h-32 rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-500 opacity-20 blur-2xl pointer-events-none"
+              className="absolute -bottom-10 -left-6 w-32 h-32 rounded-full bg-gradient-to-tr from-accent to-emerald-500 opacity-20 blur-2xl pointer-events-none"
             />
           </motion.div>
         </div>

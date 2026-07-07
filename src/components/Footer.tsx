@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-40 p-3.5 rounded-full bg-card border border-border/80 text-muted hover:text-text hover:border-cyan-400/55 hover:bg-surface transition-all duration-300 shadow-premium cursor-pointer"
+            className="fixed bottom-8 right-8 z-40 p-3.5 rounded-full bg-card border border-border/80 text-muted hover:text-text hover:border-accent/55 hover:bg-surface transition-all duration-300 shadow-premium cursor-pointer"
             aria-label="Scroll to top"
           >
             <FiArrowUp size={20} />

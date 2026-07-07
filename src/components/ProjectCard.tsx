@@ -28,7 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
-      className={`group rounded-card bg-card border border-border/60 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)] transition-all duration-500 overflow-hidden flex flex-col justify-between shadow-premium ${project.gridSpan}`}
+      className={`group rounded-card bg-card border border-border/60 hover:border-projectAccent/40 hover:shadow-[0_0_30px_rgba(255,183,77,0.2)] transition-all duration-500 overflow-hidden flex flex-col justify-between shadow-premium ${project.gridSpan}`}
     >
       {/* Project Visual Preview (Mockup) */}
       <div className="w-full h-60 sm:h-72 md:h-80 bg-background relative overflow-hidden flex items-center justify-center border-b border-border/45">
@@ -43,7 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-medium px-2.5 py-1 rounded-md bg-surface border border-border text-muted hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-400 transition-all duration-300 cursor-default"
+                className="text-xs font-medium px-2.5 py-1 rounded-md bg-surface border border-border text-muted hover:border-projectAccent/50 hover:bg-projectAccent/10 hover:text-projectAccent transition-all duration-300 cursor-default"
               >
                 {tag}
               </span>
@@ -51,7 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
 
           {/* Title */}
-          <h3 className="text-xl sm:text-2xl font-bold text-text mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+          <h3 className="text-xl sm:text-2xl font-bold text-text mb-3 group-hover:text-projectAccent transition-colors duration-300">
             {project.title}
           </h3>
 
@@ -63,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {/* Problem Solved & Key Features Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 border-t border-border/30 pt-6">
             <div>
-              <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 flex items-center">
+              <h4 className="text-xs font-semibold text-projectAccent uppercase tracking-wider mb-2 flex items-center">
                 <FiCpu className="mr-1.5" /> Problem Solved
               </h4>
               <p className="text-xs text-muted leading-relaxed">
@@ -71,13 +71,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               </p>
             </div>
             <div>
-              <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 flex items-center">
+              <h4 className="text-xs font-semibold text-projectAccent uppercase tracking-wider mb-2 flex items-center">
                 <FiCheckCircle className="mr-1.5" /> Key Features
               </h4>
               <ul className="text-xs text-muted space-y-1.5">
                 {project.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-cyan-400 mr-1.5">•</span>
+                    <span className="text-projectAccent mr-1.5">•</span>
                     <span>{feature}</span>
                   </li>
                 ))}

@@ -6,15 +6,19 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+            colors: {
         background: "#09090B",
         surface: "#111827",
         card: "#18181B",
         border: "#27272A",
         text: "#FAFAFA",
         muted: "#A1A1AA",
-        primary: "#06B6D4",
-        secondary: "#06B6D4",
+        primary: "#FFB74D",
+        secondary: "#4A0040",
+        accent: "#FFB74D",
+        accentDark: "#4A0040",
+        projectAccent: "#FFB74D",
+        projectAccentDark: "#4A0040",
       },
       fontFamily: {
         heading: ["Poppins", "sans-serif"],

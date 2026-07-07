@@ -73,7 +73,7 @@ const itemVariants = {
       variants={itemVariants}
       className="group relative overflow-hidden rounded-xl
                  bg-surface border border-border/60
-                 hover:border-cyan-400/40 transition-all
+                 hover:border-accent/40 transition-all
                  duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
     >
       {/* Card content */}
@@ -127,8 +127,8 @@ export const CodeSnippets = () => {
     <section className="relative py-16 md:py-24 bg-background">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-10 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-10 w-72 h-72 bg-accentDark/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-10 w-64 h-64 bg-accentDark/5 rounded-full blur-3xl"></div>
       </div>
 
       <Container>
@@ -165,8 +165,8 @@ export const CodeSnippets = () => {
                     onClick={() => setSelectedSnippet(index)}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
                       selectedSnippet === index
-                        ? 'bg-cyan-400/20 border border-cyan-400/50 text-cyan-400'
-                        : 'bg-surface border border-border/60 text-text hover:border-cyan-400/30 hover:text-cyan-300'
+                        ? 'bg-accent/20 border border-accent/50 text-accent'
+                        : 'bg-surface border border-border/60 text-text hover:border-accent/30 hover:text-accent'
                     }`}
                   >
                     <div className="font-medium text-sm">{snippet.title}</div>
@@ -187,7 +187,7 @@ export const CodeSnippets = () => {
                   {/* Header */}
                   <div className="flex items-center justify-between px-4 py-3 bg-surface/50 border-b border-border/40">
                     <div>
-                      <h3 className="font-semibold text-cyan-400 text-sm">
+                      <h3 className="font-semibold text-accent text-sm">
                         {currentSnippet.title}
                       </h3>
                       <p className="text-xs text-muted mt-1">
@@ -198,9 +198,9 @@ export const CodeSnippets = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleCopy(currentSnippet.code, currentSnippet.id)}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-cyan-400/10 
-                                 hover:bg-cyan-400/20 text-cyan-400 transition-all duration-300
-                                 text-xs font-medium border border-cyan-400/20 hover:border-cyan-400/40"
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 
+                                 hover:bg-accent/20 text-accent transition-all duration-300
+                                 text-xs font-medium border border-accent/20 hover:border-accent/40"
                     >
                       {copiedId === currentSnippet.id ? (
                         <>
@@ -239,8 +239,8 @@ export const CodeSnippets = () => {
                 {/* Language Badge */}
                 <div className="mt-4 flex items-center gap-2">
                   <span className="text-xs text-muted">Language:</span>
-                  <span className="px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/30
-                                  text-cyan-400 text-xs font-medium">
+                  <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/30
+                                  text-accent text-xs font-medium">
                     {currentSnippet.language.charAt(0).toUpperCase() +
                       currentSnippet.language.slice(1)}
                   </span>
@@ -257,13 +257,13 @@ export const CodeSnippets = () => {
             viewport={{ once: true, margin: '-100px' }}
             className="mt-12 p-6 rounded-xl bg-surface border border-border/60"
           >
-            <h4 className="text-cyan-400 font-semibold mb-2">Tech Stack Used</h4>
+            <h4 className="text-accent font-semibold mb-2">Tech Stack Used</h4>
             <div className="flex flex-wrap gap-2">
               {['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'].map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/30
-                            text-cyan-300 text-sm"
+                  className="px-3 py-1 rounded-full bg-accent/10 border border-accent/30
+                            text-accent text-sm"
                 >
                   {tech}
                 </span>

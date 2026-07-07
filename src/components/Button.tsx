@@ -28,13 +28,13 @@ export const Button: React.FC<ButtonProps> = ({
   target,
   rel,
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
   
   const variants = {
-    primary: 'bg-cyan-400 text-black hover:bg-cyan-500 shadow-[0_4px_20px_rgba(6,182,212,0.25)] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-300',
-    secondary: 'bg-cyan-400 text-black hover:bg-cyan-500 shadow-[0_4px_20px_rgba(6,182,212,0.25)] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-300',
-    outline: 'border border-border text-text hover:bg-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all duration-300',
-    ghost: 'text-muted hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300',
+    primary: 'bg-accent text-black hover:bg-accent/90 shadow-[0_4px_20px_rgba(255,183,77,0.25)] hover:shadow-[0_0_30px_rgba(255,183,77,0.35)] transition-all duration-300',
+    secondary: 'bg-accent text-black hover:bg-accent/90 shadow-[0_4px_20px_rgba(255,183,77,0.25)] hover:shadow-[0_0_30px_rgba(255,183,77,0.35)] transition-all duration-300',
+    outline: 'border border-border text-text hover:bg-accent/10 hover:text-accent hover:border-accent/50 transition-all duration-300',
+    ghost: 'text-muted hover:text-accent hover:bg-accent/10 transition-all duration-300',
   };
 
   const sizes = {

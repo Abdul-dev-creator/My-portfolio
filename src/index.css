@@ -42,6 +42,14 @@
   }
 }
 
+.light-mode .hero-name {
+  color: #000000;
+}
+
+.dark-mode .hero-name {
+  color: #FFFFFF;
+}
+
 /* Custom premium scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
