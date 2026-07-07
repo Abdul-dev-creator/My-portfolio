@@ -10,12 +10,11 @@ export const Projects: React.FC = () => {
       title: 'Sleep Tracker',
       description: 'A modern, full-stack sleep tracking application with a beautiful dashboard,built with Next.js 16, Supabase, and Tailwind CSS. Track your sleep patterns, visualize trends, and gain insights into your sleep quality.',
       tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-      problemSolved: 'Traditional auto portals suffer from slow page loads, sluggish client-side filtering, and uninspiring vehicle details pages. AOL Autos resolves this with a GraphQL-powered backend and responsive client-side state management.',
+      problemSolved: 'Users need a fast, easy way to log sleep habits, visualize patterns, and review sleep quality over time. This app simplifies tracking with a clean dashboard and responsive controls.',
       features: [
         'Secure User Authentication with Supabase Auth',
-        'Log Sleep Sessions with duration',
-        'Smart Date Selection with intuitive date picker',
-        ''
+        'Log sleep sessions with duration',
+        'Smart date selection with an intuitive date picker'
       ],
       githubUrl: 'https://github.com/Abdul-dev-creator/sleep-tracker',
       liveUrl: 'https://sleep-tracker-red-seven.vercel.app/',
@@ -73,39 +72,6 @@ export const Projects: React.FC = () => {
         </div>
       )
     },
-    {
-      title: 'Portfolio Website',
-      description: 'A premium developer portfolio showcasing clean typography, interactive sections, and high performance.',
-      tags: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      problemSolved: 'Standard portfolios are often template-based and fail to showcase high-quality frontend practices like dark-mode design, smooth micro-interactions, and rigid accessibility.',
-      features: [
-        'Interactive bento grid layout',
-        'Smooth scroll & glassmorphism navbar',
-        'State-backed editable stat cards',
-        'Lighthouse performance optimized'
-      ],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      gridSpan: 'lg:col-span-12',
-      previewComponent: (
-        <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-br from-background via-background to-cyan-400/5">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-          <div className="flex items-center justify-between z-10">
-            <span className="text-xs font-bold text-cyan-400 font-heading">Portfolio</span>
-            <span className="text-[10px] bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 px-2 py-0.5 rounded-full font-mono">Live</span>
-          </div>
-          
-          {/* Screenshot Image */}
-          <div className="flex-1 mt-4 z-10 rounded-2xl overflow-hidden">
-            <img 
-              src="/portfolio.png" 
-              alt="Blastr Email Marketing Dashboard" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      )
-    }
   ];
 
   return (
